@@ -38,12 +38,13 @@ body{
     margin: 0 auto;
     width: 1012px;
     height: 474px;
-    background-color: #F3F6FD;
+    background-color: #FFF;
 }
 .app {
+    display: flex;
     min-height: 100%;
     overflow: hidden;
-    background: white;
+    background-color: #F3F6FD;
 }
 .panel {
     display: flex;
@@ -61,7 +62,6 @@ body{
 .app-name {
     font-size: 18px;
     font-weight: 700;
-    line-height: normal;
 }
 .menu {
     display: flex;
@@ -107,4 +107,141 @@ body{
     filter: brightness(0) invert(1);
 }
 .content {
+    width: 100%;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.title-haeder {
+    font-size: 30px;
+    margin: 45px 0 36px 49px;
+}
+.progress {
+    display: flex;
+    flex-direction: column;
+    width: 235px;
+    margin: 52px 41px 29px 0;
+    gap: 12px;
+}
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+}
+.progress-name {
+    color: #232360;
+    font-size: 14px;
+}
+.progress-percent {
+    color: #768396;
+    font-size: 12px;
+}
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    border-radius: 4px;
+    background: #E6E9ED;
+}
+.progress-cover-bar {
+    position: absolute;
+    width: 80%;
+    height: 5px;
+    border-radius: 4px;
+    background: #5051F9;
+}
+.main {
+}
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.habit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 812px;
+    height: 54px;
+    margin: 0 36px 0 41px;
+    border-radius: 10px;
+    background: #FFF;
+}
+.habit-day-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 129px;
+    height: 54px;
+    border-radius: 10px 0 0 10px;
+    border-right: 1px solid #E7EBFB;
+    background-color: #FBFAFF;
+}
+.habit-day {
+    font-size: 14px;
+    font-weight: 500;
+}
+.habit-coment-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.habit-coment {
+    margin-left: 24px;
+    color: #23235F;
+    font-weight: 500;
+}
+.habit-delete {
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    margin-right: 13px;
+    padding: 2px;
+}
+.habit-delete:hover {
+    background: #D7D7FF;
+}
+.habit-delete:hover img{
+    filter: brightness(0) invert(1);
+}
+.habit-coment-form {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.input-item {
+    width: 521px;
+    height: 39px;
+    margin-left: 24px;
+    padding: 12px 48px;
+    border-radius: 9px;
+    border: 1px solid #E7EBFB;
+    background: #FFF;
+}
+.input-item::placeholder{
+    color: #8899A8;
+    font-size: 14px;
+    font-weight: 400;
+}
+.input-icon {
+    position: absolute;
+    left: 44px;
+}
+.habit-done {
+    color: #5051F9;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 120px;
+    height: 39px;
+    margin-right: 5px;
+    border-radius: 9px;
+    background: #EDECFE;
+}
+.habit-done:hover {
+    background: #C9C6FF;
 }
