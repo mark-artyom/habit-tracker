@@ -1,7 +1,6 @@
 'use strict';
 
 let habits = [];
-const HABIT_KEY = 'HABIT_KEY'
 
 /*----------page----------*/
 const page = {
@@ -10,15 +9,17 @@ const page = {
 
 /*---------utils---------*/
 
-function loadData() {
-    const habitsString = localStorage.getItem(HABIT_KEY);
-    const habitsArray = JSON.parse(habitsString);
+async function loadData() {
+    const response = await fetch('/habit-tracker/data/demo.json');
+    const habitsArray = await response.json();
     if (Array.isArray(habitsArray)) {
-        habits = habitsArray
+        habits = habitsArray;
     }
 }
+
 function saveData() {
-    localStorage.setItem(HABIT_KEY, JSON.stringify(habits))
+    const blob = new Blob([JSON.stringify(habits)], {type : 'application/json'});
+    saveAs(blob, 'demo.json');
 }
 
 /*---------render---------*/
@@ -53,7 +54,7 @@ function rerender(activeHabitId) {
     rerenderMenu(activeHabit)
 }
 /*----------init----------*/
-(() => {
-    loadData()
-    rerender(habits[0].id)
-})()
+(async () => {
+    await loadData();
+    rerender(habits[0].id);
+})();

@@ -153,8 +153,6 @@ body{
     border-radius: 4px;
     background: #5051F9;
 }
-.main {
-}
 .main-wrapper {
     display: flex;
     flex-direction: column;
