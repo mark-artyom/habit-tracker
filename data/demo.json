@@ -11,7 +11,7 @@
     },
     {
         "id": 2,
-        "icon": "food",
+        "icon": "noodle",
         "name": "Proper nutrition",
         "target": 10,
         "days": [

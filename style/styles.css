@@ -92,6 +92,9 @@ body{
 .active {
     background: #5051F9;
 }
+.active img{
+    filter: brightness(0) invert(1);
+}
 .menu-add {
     cursor: pointer;
     width: 46px;
