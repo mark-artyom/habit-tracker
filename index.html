@@ -3,14 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/habit-tracker/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/habit-tracker/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/habit-tracker/favicon-16x16.png">
     <link rel="manifest" href="/habit-tracker/site.webmanifest">
-    <link rel="stylesheet" href="/habit-tracker/styles.css">
+    <link rel="stylesheet" href="/habit-tracker/style/styles.css">
     <title>Habit Tracker</title>
 </head>
 <body>
-    <script src="/habit-tracker/app.js"></script>
+    <div class="app">
+        <div class="panel">
+            <img src="/habit-tracker/img/logo.svg" alt="logo" class="logo">
+            <span class="app-name">Habbit</span>
+            <nav class="menu">
+                <div class="menu-list">
+                    <button class="menu-item active">
+                        <img src="/habit-tracker/img/dumbbell.svg" alt="dumbbell">
+                    </button>
+                    <button class="menu-item">
+                        <img src="/habit-tracker/img/water.svg" alt="water">
+                    </button>
+                    <button class="menu-item">
+                        <img src="/habit-tracker/img/noodle.svg" alt="noodle">
+                    </button>
+                </div>
+                <button class="menu-add">
+                    <img src="/habit-tracker/img/add.svg" alt="add" srcset="">
+                </button>
+            </nav>
+        </div>
+        <div class="content">
+
+        </div>
+    </div>
+    <script src="/habit-tracker/js/app.js"></script>
 </body>
 </html>
