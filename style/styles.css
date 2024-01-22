@@ -236,6 +236,9 @@ body{
     font-size: 14px;
     font-weight: 400;
 }
+.input-item.error{
+    border: 1px solid red
+}
 .input-icon {
     position: absolute;
     left: 44px;

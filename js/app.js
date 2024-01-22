@@ -1,6 +1,7 @@
 'use strict';
 
 let habits = [];
+let globalActiveHabitId;
 
 /*----------page----------*/
 const page = {
@@ -29,6 +30,35 @@ async function loadData() {
 function saveData() {
     const blob = new Blob([JSON.stringify(habits)], {type : 'application/json'});
     saveAs(blob, 'demo.json');
+}
+
+function resetForm(form, fields) {
+	for (const field of fields) {
+		form[field].value = '';
+	}
+}
+
+function validateAndGetFormData(form, fields) {
+	const formData = new FormData(form);
+	const res = {};
+	for (const field of fields) {
+		const fieldValue = formData.get(field);
+		form[field].classList.remove('error');
+		if (!fieldValue) {
+			form[field].classList.add('error');
+		}
+		res[field] = fieldValue;
+	}
+	let isValid = true;
+	for (const field of fields) {
+		if (!res[field]) {
+			isValid = false;
+		}
+	}
+	if (!isValid) {
+		return;
+	}
+	return res;
 }
 
 /*---------render---------*/
@@ -84,16 +114,61 @@ function rerenderContent(activeHabit) {
 }
 
 function rerender(activeHabitId) {
+    globalActiveHabitId = activeHabitId;
     const activeHabit = habits.find(habit => habit.id === activeHabitId)
     if (!activeHabit) {
 		return;
 	}
+    document.location.replace(document.location.pathname + '#' + activeHabitId);
     rerenderMenu(activeHabit)
     rerenderHead(activeHabit)
     rerenderContent(activeHabit)
 }
+
+/*------work-with-days-----*/
+function addDays(event) {
+	event.preventDefault();
+	const data = validateAndGetFormData(event.target, ['comment']);
+	if (!data) {
+		return;
+	}
+	habits = habits.map(habit => {
+		if (habit.id === globalActiveHabitId) {
+			return {
+				...habit,
+				days: habit.days.concat([{ comment: data.comment }])
+			}
+		}
+		return habit;
+	});
+	resetForm(event.target, ['comment']);
+	rerender(globalActiveHabitId);
+	saveData();
+}
+
+function deleteDay(index) {
+	habits = habits.map(habit => {
+		if (habit.id === globalActiveHabitId) {
+			habit.days.splice(index, 1);
+			return {
+				...habit,
+				days: habit.days
+			};
+		}
+		return habit;
+	});
+	rerender(globalActiveHabitId);
+	saveData();
+}
+
 /*----------init----------*/
 (async () => {
     await loadData();
-    rerender(habits[0].id);
+	const hashId = Number(document.location.hash.replace('#', ''));
+	const urlHabit = habits.find(habit => habit.id == hashId);
+	if (urlHabit) {
+		rerender(urlHabit.id);
+	} else {
+		rerender(habits[0].id);
+	}
 })();
