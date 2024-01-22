@@ -9,6 +9,10 @@ const page = {
         h1: document.querySelector('.title-haeder'),
         progressPercent: document.querySelector('.progress-percent'),
         progressCoverBar: document.querySelector('.progress-cover-bar')
+    },
+    content: {
+        daysContainer: document.querySelector('.main-wrapper'),
+		nextDay: document.querySelector('.habit-day')
     }
 }
 
@@ -60,6 +64,25 @@ function rerenderHead(activeHabit) {
         page.header.progressCoverBar.setAttribute('style', `width: ${progress}%`)
 }
 
+function rerenderContent(activeHabit) {
+	page.content.daysContainer.innerHTML = '';
+	for (const index in activeHabit.days) {
+		const element = document.createElement('div');
+		element.classList.add('habit');
+		element.innerHTML = `<div class="habit-day-wrapper">
+                                <div class="habit-day">Day ${Number(index) + 1}</div>
+                            </div>
+                            <div class="habit-coment-wrapper">
+                                <div class="habit-coment">${activeHabit.days[index].comment}</div>
+                                <button class="habit-delete" onclick="deleteDay(${index})">
+                                    <img src="/habit-tracker/img/delete.svg" alt="delete day ${index + 1}">
+                                </button>
+                            </div>`;
+		page.content.daysContainer.appendChild(element);
+	}
+	page.content.nextDay.innerHTML = `Day ${activeHabit.days.length + 1}`;
+}
+
 function rerender(activeHabitId) {
     const activeHabit = habits.find(habit => habit.id === activeHabitId)
     if (!activeHabit) {
@@ -67,6 +90,7 @@ function rerender(activeHabitId) {
 	}
     rerenderMenu(activeHabit)
     rerenderHead(activeHabit)
+    rerenderContent(activeHabit)
 }
 /*----------init----------*/
 (async () => {
