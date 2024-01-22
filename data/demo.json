@@ -3,7 +3,7 @@
         "id": 1,
         "icon": "sport",
         "name": "Push-ups",
-        "target": 10,
+        "target": 21,
         "days": [
             { "comment": "The first approach is always difficult"},
             { "comment": "The second day is already easier"}
@@ -13,9 +13,20 @@
         "id": 2,
         "icon": "noodle",
         "name": "Proper nutrition",
-        "target": 10,
+        "target": 16,
         "days": [
-            { "comment": "Cool!"}
+            { "comment": "In a year's time, we'll regret not starting today."},
+            { "comment": "Self-belief creates heroes."}
+        ]
+    },
+    {
+        "id": 3,
+        "icon": "water",
+        "name": "Volume of liquid consumed",
+        "target": 7,
+        "days": [
+            { "comment": "The most important rival is the reflection in the mirror!"},
+            { "comment": "It's never too late to become what you've always dreamed of!"}
         ]
     }
 ]

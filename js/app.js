@@ -4,7 +4,12 @@ let habits = [];
 
 /*----------page----------*/
 const page = {
-    menu: document.querySelector('.menu-list')
+    menu: document.querySelector('.menu-list'),
+    header: {
+        h1: document.querySelector('.title-haeder'),
+        progressPercent: document.querySelector('.progress-percent'),
+        progressCoverBar: document.querySelector('.progress-cover-bar')
+    }
 }
 
 /*---------utils---------*/
@@ -46,12 +51,22 @@ function rerenderMenu(activeHabit) {
     }
 }
 
+function rerenderHead(activeHabit) {
+    page.header.h1.innerText = activeHabit.name
+    const progress = activeHabit.days.length / activeHabit.target > 1
+        ? 100
+        : activeHabit.days.length / activeHabit.target * 100
+        page.header.progressPercent.innerText = progress.toFixed(0) + '%'
+        page.header.progressCoverBar.setAttribute('style', `width: ${progress}%`)
+}
+
 function rerender(activeHabitId) {
     const activeHabit = habits.find(habit => habit.id === activeHabitId)
     if (!activeHabit) {
 		return;
 	}
     rerenderMenu(activeHabit)
+    rerenderHead(activeHabit)
 }
 /*----------init----------*/
 (async () => {
