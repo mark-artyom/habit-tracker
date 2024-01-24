@@ -14,7 +14,11 @@ const page = {
     content: {
         daysContainer: document.querySelector('.main-wrapper'),
 		nextDay: document.querySelector('.habit-day')
-    }
+    },
+	popup: {
+		index: document.querySelector('.cover'),
+		iconField: document.querySelector('.pop-up-form input[name="icon"]')
+	}
 }
 
 /*---------utils---------*/
@@ -30,6 +34,14 @@ async function loadData() {
 function saveData() {
     const blob = new Blob([JSON.stringify(habits)], {type : 'application/json'});
     saveAs(blob, 'demo.json');
+}
+
+function togglePopup() {
+	if (page.popup.index.classList.contains('cover-hidden')) {
+		page.popup.index.classList.remove('cover-hidden');
+	} else {
+		page.popup.index.classList.add('cover-hidden');
+	}
 }
 
 function resetForm(form, fields) {

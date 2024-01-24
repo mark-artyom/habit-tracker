@@ -269,7 +269,7 @@ body{
     justify-content: center;
 }
 .cover-hidden {
-    /*display: none;*/
+    display: none;
 }
 .pop-up {
     width: 424px;
