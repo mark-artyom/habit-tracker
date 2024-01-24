@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/habit-tracker/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/habit-tracker/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/habit-tracker/favicon-16x16.png">
+    <link rel="manifest" href="/habit-tracker/site.webmanifest">
+    <link rel="stylesheet" href="/habit-tracker/style/styles.css">
+    <title>Habit Tracker</title>
+</head>
+<body>
+    <div class="app">
+        <div class="panel">
+            <img src="/habit-tracker/img/logo.svg" alt="logo" class="logo">
+            <span class="app-name">Habbit</span>
+            <nav class="menu">
+                <div class="menu-list"></div>
+                <button class="menu-add" onclick="togglePopup()">
+                    <img src="/habit-tracker/img/add.svg" alt="add" srcset="">
+                </button>
+            </nav>
+        </div>
+        <div class="content">
+            <header class="header">
+                <h1 class="title-haeder">Push-ups</h1>
+                <div class="progress">
+                    <div class="progress-text">
+                        <div class="progress-name">Progress</div>
+                        <div class="progress-percent">%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-cover-bar"></div>
+                    </div>
+                </div>
+            </header>
+            <main class="main">
+                <div class="main-wrapper"></div>
+                <div class="habit-add">
+                    <div class="habit-day-wrapper">
+                        <div class="habit-day">Day 2</div>
+                    </div>
+                    <form class="habit-coment-form" onsubmit="addDays(event)">
+                        <input class="input-item" type="text" name="comment" id="comment" placeholder="Comment">
+                        <img src="/habit-tracker/img/comment.svg" alt="cmment" srcset="" class="input-icon">
+                        <button class="habit-done">Done</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+        <div class="cover cover-hidden">
+            <div class="pop-up">
+                <button class="close" onclick="togglePopup()">
+                    <img src="/habit-tracker/img/cross.svg" alt="close" srcset="">
+                </button>
+                <h2>A new habit</h2>
+                <div class="icon-label">Icon</div>
+                <div class="icon-select">
+                    <button class="icon icon-active" onclick="setIcon(this, 'sport')">
+                        <img src="/habit-tracker/img/sport.svg" alt="sport" srcset="">
+                    </button>
+                    <button class="icon" onclick="setIcon(this, 'noodle')">
+                        <img src="/habit-tracker/img/noodle.svg" alt="noodle" srcset="">
+                    </button>
+                    <button class="icon" onclick="setIcon(this, 'water')">
+                        <img src="/habit-tracker/img/water.svg" alt="water" srcset="">
+                    </button>
+                </div>
+                <form action="" class="pop-up-form" onsubmit="addHabbit(event)">
+                    <input type="text" name="name" id="title" placeholder="Title" class="input-item-pp" autocomplete="name">
+                    <input type="text" name="icon" id="icon" hidden placeholder="Title" class="input-item-pp" value="sport">
+                    <input type="number" name="target" id="target" placeholder="Target" class="input-item-pp">
+                    <button type="submit" class="button-done">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="/habit-tracker/js/app.js"></script>
+</body>
+</html>
