@@ -46,7 +46,7 @@
                         <div class="habit-day">Day 2</div>
                     </div>
                     <form class="habit-coment-form" onsubmit="addDays(event)">
-                        <input class="input-item" type="text" name="" id="" placeholder="Comment">
+                        <input class="input-item" type="text" name="comment" id="comment" placeholder="Comment">
                         <img src="/habit-tracker/img/comment.svg" alt="cmment" srcset="" class="input-icon">
                         <button class="habit-done">Done</button>
                     </form>
@@ -71,10 +71,10 @@
                         <img src="/habit-tracker/img/water.svg" alt="water" srcset="">
                     </button>
                 </div>
-                <form action="" class="pop-up-form">
-                    <input type="text" name="name" id="" placeholder="Title" class="input-item-pp">
-                    <input type="text" name="icon" id="" hidden placeholder="Title" class="input-item-pp" value="sport">
-                    <input type="number" name="target" id="" placeholder="Target" class="input-item-pp">
+                <form action="" class="pop-up-form" onsubmit="addHabbit(event)">
+                    <input type="text" name="name" id="title" placeholder="Title" class="input-item-pp" autocomplete="name">
+                    <input type="text" name="icon" id="icon" hidden placeholder="Title" class="input-item-pp" value="sport">
+                    <input type="number" name="target" id="target" placeholder="Target" class="input-item-pp">
                     <button type="submit" class="button-done">Add</button>
                 </form>
             </div>
