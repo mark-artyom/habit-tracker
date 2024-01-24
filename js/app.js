@@ -173,6 +173,34 @@ function deleteDay(index) {
 	saveData();
 }
 
+/*---working-with-habbits--*/
+function setIcon(context, icon) {
+	page.popup.iconField.value = icon;
+	const activeIcon = document.querySelector('.icon.icon-active');
+	activeIcon.classList.remove('icon-active');
+	context.classList.add('icon-active');
+}
+
+function addHabit(event) {
+	event.preventDefault();
+	const data = validateAndGetFormData(event.target, ['name', 'icon', 'target']);
+	if (!data) {
+		return;
+	}
+	const maxId = habits.reduce((acc, habit) => acc > habit.id ? acc : habit.id, 0);
+	habits.push({
+		id: maxId + 1,
+		name: data.name,
+		target: data.target,
+		icon: data.icon,
+		days: []
+	});
+	resetForm(event.target, ['name', 'target']);
+	togglePopup();
+	saveData();
+	rerender(maxId + 1);
+}
+
 /*----------init----------*/
 (async () => {
     await loadData();
